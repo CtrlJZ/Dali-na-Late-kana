@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Button-bwd.gd" type="Script" id=1]
+[ext_resource path="res://fonts/NiseSegaSonic.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://logo/fnal game over.png" type="Texture" id=3]
+[ext_resource path="res://InsideOut-DAp0.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Button-retry.gd" type="Script" id=5]
+[ext_resource path="res://New folder/onlymp3.to - Clock Anxiety (2020) - Crime Suspense Cinematic Music-mU138JcjXCg-256k-1655773584217.mp3" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+outline_color = Color( 0.87451, 0.129412, 0.129412, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 57
+outline_size = 3
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 57
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_vertical_guides_": [ 502.0 ]
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1022.0
+margin_bottom = 595.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 1021.0
+margin_bottom = 597.0
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.992157, 1 )
+custom_colors/font_outline_modulate = Color( 0.027451, 0.027451, 0.027451, 1 )
+custom_colors/font_color_shadow = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+
+[node name="quit" type="Button" parent="."]
+margin_left = 746.0
+margin_top = 508.0
+margin_right = 995.0
+margin_bottom = 578.0
+custom_colors/font_color_disabled = Color( 0.0392157, 0.352941, 0.839216, 1 )
+custom_colors/font_color_focus = Color( 0.0392157, 0.352941, 0.839216, 1 )
+custom_colors/font_color = Color( 1, 0.992157, 0.992157, 1 )
+custom_colors/font_color_hover = Color( 0.0392157, 0.352941, 0.839216, 1 )
+custom_colors/font_color_pressed = Color( 0.0392157, 0.352941, 0.839216, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "quit"
+flat = true
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 730.0
+margin_top = 438.0
+margin_right = 1010.0
+margin_bottom = 508.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "try again"
+flat = true
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 3.0
+autoplay = true
+
+[connection signal="pressed" from="quit" to="quit" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
